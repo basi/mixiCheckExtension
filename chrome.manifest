@@ -1,0 +1,9 @@
+content     mixicheck   content/
+skin        mixicheck   classic/1.0    skin/platform/winnt/  os=WINNT
+skin        mixicheck   classic/1.0    skin/platform/darwin/ os=Darwin
+skin        mixicheck   classic/1.0    skin/platform/linux/  os=Linux
+locale      mixicheck   ja-JP          locale/ja-JP/
+locale      mixicheck   en-US          locale/en-US/
+
+overlay     chrome://browser/content/browser.xul   chrome://mixicheck/content/overlay.xul
+style       chrome://global/content/customizeToolbar.xul chrome://mixicheck/skin/button.css

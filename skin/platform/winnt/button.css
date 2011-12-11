@@ -1,0 +1,16 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+/* toolbar button */
+
+#mixicheck-toolbarbutton {
+  list-style-image: url(chrome://mixicheck/skin/buttons.png);
+  -moz-image-region: rect(0 25px 25px 0);
+}
+
+#mixicheck-toolbarbutton[disabled="true"], #mixicheck-toolbarbutton[disabled="true"]:hover {
+  -moz-image-region: rect(0 51px 25px 26px);
+}
+
+#mixicheck-toolbarbutton:hover {
+  -moz-image-region: rect(0 25px 25px 0px);
+}

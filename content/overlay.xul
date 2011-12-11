@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://mixicheck/skin/button.css" type="text/css"?>
+<!DOCTYPE overlay SYSTEM "chrome://mixicheck/locale/locale.dtd">
+<overlay id="restartOverlay"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+<script type="application/x-javascript" src="chrome://mixicheck/content/overlay.js"/>
+
+<script type="application/x-javascript">
+<![CDATA[
+var mixicheck = function() {};
+
+mixicheck.prototype.checkSite = function () {
+  var key = getMixiCheckKey();
+  
+  var urlkey = new Array();
+  var domain = content.location.host;
+  urlkey[domain] = key;
+  var checkurl='http://mixi.jp/share.pl?u=';
+  var href = content.location.href;
+  var k;
+  if ( urlkey[domain]!=null ) {
+     k = urlkey[domain];
+  } else {
+    href = href.replace('https', 'http');
+    if ( href.match(/^http:\/\/twitter/) ) {
+      href = href.replace('#!/', '');
+    }
+    k = '5e4317cedfc5858733a2740d1f59ab4088e370a7';
+  }
+  var u = encodeURIComponent(href);
+  
+  window.open(checkurl + u + '&k=' + k, '_blank', 'width = 632, height = 456, location=yes, resizable=yes, toolbar=no, menubar=no, scrollbars=no, status=no' );
+  
+  delete urlkey;
+  delete checkurl;
+}
+
+]]>
+</script>
+
+<keyset id="mainKeyset">
+		<key id="mixicheck" modifiers="shift" key="c" oncommand="(new mixicheck()).checkSite();"/>
+</keyset>
+
+<toolbarpalette id="BrowserToolbarPalette">
+    <toolbarbutton id="mixicheck-toolbarbutton"
+    class="toolbarbutton-1"
+    onclick="(new mixicheck()).checkSite();"
+    label="&mixicheck.message;"
+    tooltiptext="&mixicheck.tooltiptext;"
+    disabled="false"/>
+</toolbarpalette>
+
+</overlay>
