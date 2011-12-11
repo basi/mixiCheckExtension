@@ -14,7 +14,7 @@ do
 done
 
 cd ..
-cp -r mixicheck mixicheck-xpi
+cp -r mixiCheckExtension mixicheck-xpi
 
 if [ "$2" = "debug" ]; then
   cd mixicheck-xpi
@@ -39,7 +39,7 @@ if [ "$FLG_PRO" = "TRUE" ]; then
   if [ "$FLG_VER" = "TRUE" ]; then
     zip -r mixicheck-$VALUE_VERSION.xpi chrome install.rdf chrome.manifest
     mv mixicheck-$VALUE_VERSION.xpi ~/Desktop
-  else 
+  else
     zip -r mixicheck-pro.xpi chrome install.rdf chrome.manifest
     mv mixicheck-pro.xpi ~/Desktop
    fi
